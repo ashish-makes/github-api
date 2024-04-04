@@ -9,6 +9,15 @@ window.onload = function() {
     });
 };
 
+function animateErrorMsg(elementId) {
+    const errorMsg = document.getElementById(elementId);
+    gsap.from(errorMsg, {
+        duration: 0.5,
+        opacity: 0,
+        x: 100, // Move from right
+        ease: "power3.out"
+    });
+}
 
 function getUserData() {
     const username = document.getElementById('username').value;
@@ -18,6 +27,7 @@ function getUserData() {
         setTimeout(() => {
             document.getElementById('emptyErrorMsg').style.display = 'none';
         }, 3000);
+        animateErrorMsg('emptyErrorMsg'); // Animate empty error message
         return;
     }
 
@@ -65,10 +75,11 @@ function getUserData() {
             if (error.message === 'User not found') {
                 const notFoundErrorMsg = document.getElementById('notFoundErrorMsg');
                 notFoundErrorMsg.innerHTML = 'User not found!';
-                notFoundErrorMsg.style.display = 'inline-block'; // Show not found error message span
+                notFoundErrorMsg.style.display = 'inline-block';
                 setTimeout(() => {
-                    notFoundErrorMsg.style.display = 'none'; // Hide not found error message span after 3 seconds
+                    notFoundErrorMsg.style.display = 'none';
                 }, 3000);
+                animateErrorMsg('notFoundErrorMsg');
             }
         });
 }
