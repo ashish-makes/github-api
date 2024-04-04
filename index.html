@@ -7,7 +7,12 @@
 <title>GitHub User Data</title>
 </head>
 <body>
-
+    <span id='notFoundErrorMsg'></span>
+    <span id='emptyErrorMsg'></span>
+    <div class='ashish-credits'>
+        <span style="margin-top: .1rem;" class='text'>A project by <span class='name'
+                >ashish (200531084)<span></span>
+    </div>
     <main class="container">
         <div class="wrapper">
             <div>
@@ -15,12 +20,6 @@
                 <div class='inputBox'>
                     <input type="text" id="username" placeholder="Enter GitHub username">
                     <button onclick="getUserData()">Fetch</button>
-                </div>
-                <div id='notFoundErrorMsgContainer'>
-                    <p id='notFoundErrorMsg'></p>
-                </div>
-                <div id='emptyErrorMsgContainer'>
-                    <p id='emptyErrorMsg'></p>
                 </div>
                 <div id="userData">
                     <div class='imgName'>

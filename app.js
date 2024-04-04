@@ -14,8 +14,9 @@ function getUserData() {
     const username = document.getElementById('username').value;
     if (username === '') {
         document.getElementById('emptyErrorMsg').innerHTML = 'Please enter a GitHub username';
+        document.getElementById('emptyErrorMsg').style.display = 'inline-block';
         setTimeout(() => {
-            document.getElementById('emptyErrorMsg').innerHTML = '';
+            document.getElementById('emptyErrorMsg').style.display = 'none';
         }, 3000);
         return;
     }
@@ -62,9 +63,11 @@ function getUserData() {
         })
         .catch(error => {
             if (error.message === 'User not found') {
-                document.getElementById('notFoundErrorMsg').innerHTML = 'User not found!';
+                const notFoundErrorMsg = document.getElementById('notFoundErrorMsg');
+                notFoundErrorMsg.innerHTML = 'User not found!';
+                notFoundErrorMsg.style.display = 'inline-block'; // Show not found error message span
                 setTimeout(() => {
-                    document.getElementById('notFoundErrorMsg').innerHTML = '';
+                    notFoundErrorMsg.style.display = 'none'; // Hide not found error message span after 3 seconds
                 }, 3000);
             }
         });
